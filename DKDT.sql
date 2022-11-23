@@ -1,0 +1,17 @@
+USE master
+GO
+
+CREATE DATABASE DKDT
+GO
+
+USE DKDT
+GO
+
+CREATE TABLE Users(
+	userid VARCHAR(50) NOT NULL PRIMARY KEY,
+	username NVARCHAR(50) NOT NULL,
+	password VARCHAR(100) NOT NULL,
+	roleid int NOT NULL
+)
+GO
+
