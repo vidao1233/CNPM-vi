@@ -9,9 +9,9 @@ import com.Connection.DBConnection;
 import com.Entity.Users;
 
 public class UserDAO extends DBConnection{
-	private Connection conn = null;
-    private PreparedStatement stm = null;
-    private ResultSet rs = null;
+	private Connection conn;
+    private PreparedStatement stm ;
+    private ResultSet rs;
 
     private void closeConnection() throws Exception {
         if (rs != null) {
@@ -24,28 +24,35 @@ public class UserDAO extends DBConnection{
             conn.close();
         }
     }
-    public Users checkLogin(String ID, String password) throws SQLException, Exception {
-        Users result = null;
+    public Users checkLogin(String username, String password) throws SQLException, Exception {
         try {
-            conn = super.getConnection();
+            Connection conn = super.getConnection();
             if (conn != null) {
-                
                 String sql = "SELECT userid , username , password , roleid"
-                        + " FROM Users WHERE userid = ? AND password = ?";
-                stm = conn.prepareStatement(sql);
-                stm.setString(1, ID);
+                        + " FROM Users WHERE username = ? AND password = ?";
+                PreparedStatement stm = conn.prepareStatement(sql);
+                stm.setString(1, username);
                 stm.setString(2, password);
-                rs = stm.executeQuery();
+                ResultSet rs = stm.executeQuery();
                 if (rs.next()) {
-                    result = new Users(rs.getString("userid"),
+                	Users result = new Users(rs.getString("userid"),
                             rs.getString("username"),
-                            "***", rs.getInt("roleid"));
+                            rs.getString("password"), rs.getInt("roleid"));
+                	return result;
                 }
+                else
+                {
+                	System.out.println("\n\ndatabase user null\n");
+                }
+            }
+            else
+            {
+            	System.out.println("\n\nconnection null\n");
             }
         } catch (Exception e) {
         } finally {
             closeConnection();
         }
-        return result;
+        return null;
     }
 }

@@ -10,14 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-        <servlet-name>HomeController</servlet-name>
-        <servlet-class>com.controller.HomeControlle</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HomeControlle</servlet-name>
-        <url-pattern>/HomeControlle</url-pattern>
-    </servlet-mapping>
+  
     <session-config>
         <session-timeout>
             30
