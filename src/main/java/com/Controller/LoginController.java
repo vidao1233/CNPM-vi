@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.DAO.UserDAO;
-import com.Entity.Users;
+import com.DAO.AccountDAO;
+import com.Entity.Accounts;
 
 @WebServlet(urlPatterns = { "/LoginController"})
 public class LoginController extends HttpServlet{
@@ -33,8 +33,8 @@ public class LoginController extends HttpServlet{
             String username = req.getParameter("txtUsername");
             String password = req.getParameter("txtPassword");
             
-            UserDAO dao = new UserDAO();
-            Users user = dao.checkLogin(username, password);
+            AccountDAO dao = new AccountDAO();
+            Accounts user = dao.checkLogin(username, password);
             if (user != null) {
                 session.setAttribute("USER", user);
                 url = SUCCESS;
