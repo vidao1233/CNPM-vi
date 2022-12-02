@@ -1,4 +1,4 @@
-package com.Controller.admin;
+package com.Controller.Admin;
 
 import java.io.IOException;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.DAO.AccountDAO;
+import com.DAO.UserDAO;
 import com.Entity.Accounts;
 
 @WebServlet(urlPatterns = { "/LoginController"})
@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet{
             String username = req.getParameter("txtUsername");
             String password = req.getParameter("txtPassword");
             
-            AccountDAO dao = new AccountDAO();
+            UserDAO dao = new UserDAO();
             Accounts user = dao.checkLogin(username, password);
             if (user != null) {
                 session.setAttribute("USER", user);
