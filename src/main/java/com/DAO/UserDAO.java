@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.Connection.DBConnection;
-import com.Entity.Users;
+import com.Entity.Accounts;
 
 public class UserDAO extends DBConnection{
 	private Connection conn;
@@ -24,7 +24,7 @@ public class UserDAO extends DBConnection{
             conn.close();
         }
     }
-    public Users checkLogin(String username, String password) throws SQLException, Exception {
+    public Accounts checkLogin(String username, String password) throws SQLException, Exception {
         try {
             Connection conn = super.getConnection();
             if (conn != null) {
@@ -35,7 +35,7 @@ public class UserDAO extends DBConnection{
                 stm.setString(2, password);
                 ResultSet rs = stm.executeQuery();
                 if (rs.next()) {
-                	Users result = new Users(
+                	Accounts result = new Accounts(
                             rs.getString("username"),
                             rs.getString("password"), 
                             rs.getInt("roleid"));
