@@ -3,7 +3,7 @@ package com.Entity;
 public class DeTai {
 	private String ma_detai;
 	private String ten_detai;
-    private String chuyennganh;
+    private int ma_chuyennganh;
     private String gvhd;
     private int trangthai;
     private int nam_totnghiep;
@@ -11,12 +11,12 @@ public class DeTai {
 	public DeTai() {
 		super();
 	}
-	public DeTai(String ma_detai, String ten_detai, String chuyennganh, String gvhd, int trangthai, int nam_totnghiep,
+	public DeTai(String ma_detai, String ten_detai, int ma_chuyennganh, String gvhd, int trangthai, int nam_totnghiep,
 			int soluongsinhviendangky) {
 		super();
 		this.ma_detai = ma_detai;
 		this.ten_detai = ten_detai;
-		this.chuyennganh = chuyennganh;
+		this.ma_chuyennganh = ma_chuyennganh;
 		this.gvhd = gvhd;
 		this.trangthai = trangthai;
 		this.nam_totnghiep = nam_totnghiep;
@@ -34,11 +34,11 @@ public class DeTai {
 	public void setTen_detai(String ten_detai) {
 		this.ten_detai = ten_detai;
 	}
-	public String getChuyennganh() {
-		return chuyennganh;
+	public int getMa_chuyennganh() {
+		return ma_chuyennganh;
 	}
-	public void setChuyennganh(String chuyennganh) {
-		this.chuyennganh = chuyennganh;
+	public void setMa_chuyennganh(int ma_chuyennganh) {
+		this.ma_chuyennganh = ma_chuyennganh;
 	}
 	public String getGvhd() {
 		return gvhd;
@@ -64,5 +64,5 @@ public class DeTai {
 	public void setSoluongsinhviendangky(int soluongsinhviendangky) {
 		this.soluongsinhviendangky = soluongsinhviendangky;
 	}
-    
+	
 }
