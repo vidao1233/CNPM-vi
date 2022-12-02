@@ -1,23 +1,16 @@
 package com.Entity;
 
 public class Users {
-	private String userid, username, password;
+	private String username, password;
     private int roleid;
 	public Users() {
 		super();
 	}
-	public Users(String userid, String username, String password, int roleid) {
+	public Users(String username, String password, int roleid) {
 		super();
-		this.userid = userid;
 		this.username = username;
 		this.password = password;
 		this.roleid = roleid;
-	}
-	public String getUserid() {
-		return userid;
-	}
-	public void setUserid(String userid) {
-		this.userid = userid;
 	}
 	public String getUsername() {
 		return username;

@@ -11,13 +11,14 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.UserDAO;
 import com.Entity.Users;
-@WebServlet(urlPatterns = { "/LoginController" })
+
+@WebServlet(urlPatterns = { "/LoginController"})
 public class LoginController extends HttpServlet{
 
 	private static final long serialVersionUID = 114145753183079163L;
 	
 	public static final String SUCCESS = "HomeController";
-    public static final String ERROR = " LoginController" ;
+    public static final String ERROR = "views/invalid.jsp";
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			request.getRequestDispatcher("views/loginPage.jsp").forward(request, response);
@@ -40,12 +41,11 @@ public class LoginController extends HttpServlet{
                 resp.sendRedirect(url);
             }
             else {
-            	resp.sendRedirect(url);
+            	System.out.println("\n\nlogin user null\n");
             }
         } catch (Exception e) {
             log("error at login servlet: " + e.toString());
+            
         } 
 	}
-    
-    
 }
