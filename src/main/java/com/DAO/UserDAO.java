@@ -40,14 +40,6 @@ public class UserDAO extends DBConnection{
                             rs.getString("password"), rs.getInt("roleid"));
                 	return result;
                 }
-                else
-                {
-                	System.out.println("\n\ndatabase user null\n");
-                }
-            }
-            else
-            {
-            	System.out.println("\n\nconnection null\n");
             }
         } catch (Exception e) {
         } finally {
